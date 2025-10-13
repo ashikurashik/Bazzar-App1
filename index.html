@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>দৈনিক বাজার তালিকা</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <h1>দৈনিক বাজার তালিকা</h1>
+  <p class="muted">এই পেজে আপনি প্রতিদিনের পণ্যের নাম, দাম ও পরিমাণ যোগ, সম্পাদনা, মুছতে পারবেন। সব ডাটা আপনার ব্রাউজারের Local Storage-এ সংরক্ষিত থাকবে।</p>
+
+  <div>
+<div class="row">
+  <input id="itemName" placeholder="পণ্যের নাম (যেমন: আলু)" />
+  <input id="itemQty" placeholder="পরিমাণ" type="number" min="0" />
+  <select id="itemUnit">
+    <option value="kg">kg</option>
+    <option value="g">gram</option>
+  </select>
+  <input id="itemPrice" placeholder="দাম (৳)" type="number" />
+  <input id="itemDate" type="date" />
+  <!-- Creator select dropdown -->
+  <select id="itemCreator">
+    <option value="Ashik">Ashik</option>
+    <option value="Kawsar">Kawsar</option>
+    <option value="Mahabub">Mahabub</option>
+  </select>
+  <select id="itemStatus">
+    <option style="font-size: 10px;" value="ক্রয় হয়নি">ক্রয় হয়নি</option>
+    <option style="font-size: 10px;" value="ক্রয় হয়েছে">ক্রয় হয়েছে</option>
+  </select>
+  <button id="addBtn">যোগ করুন</button>
+</div>
+
+</div>
+
+
+    <div class="controls">
+      <input id="search" placeholder="সার্চ নাম/তারিখ/দাম" />
+      <select id="filterDate">
+        <option value="all">সব সময়</option>
+        <option value="today">আজ</option>
+      </select>
+      <button id="exportBtn">Export CSV</button>
+      <button id="clearAll">সব মুছুন</button>
+    </div>
+
+    <table id="listTable">
+      <thead>
+       <tr>
+        <th>পণ্য</th>
+        <th>পরিমাণ</th>
+        <th>দাম (৳)</th>
+        <th>তারিখ</th>
+        <th>স্ট্যাটাস</th> <!-- এখানে নাম দেখাবে -->
+        <th>অ্যাকশন</th>
+
+      </tr>
+
+      </thead>
+      <tbody></tbody>
+      <tfoot>
+        <tr><td colspan="2"><strong>মোট</strong></td><td id="totalPrice">0</td><td colspan="3"></td></tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <!-- JS ফাইল -->
+  <script src="js/App.js"></script>
+</body>
+</html>
